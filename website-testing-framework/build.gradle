@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.farelgradle'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Cucumber
+    testImplementation 'io.cucumber:cucumber-java:7.14.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.14.0'
+
+    // Selenium WebDriver
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.5.3'  // Untuk auto-manage driver
+
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+
+    // Logging (opsional, untuk debug)
+    testImplementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'cucumber.junit-platform.naming-strategy', 'long'
+}
+
